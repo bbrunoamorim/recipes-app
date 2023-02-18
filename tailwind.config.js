@@ -4,6 +4,10 @@ module.exports = {
     './src/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    fontFamily: {
+      sans: ['Cantarell, sans-serif',
+      ],
+    },
     extend: {},
   },
   plugins: [],
