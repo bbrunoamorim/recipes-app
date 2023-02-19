@@ -25,7 +25,16 @@ function Meals() {
     <div>
       <Header title="Meals" />
 
-      <div>
+      <div className="flex items-center justify-center p-1 my-2">
+        <button
+          type="button"
+          data-testid="All-category-filter"
+          onClick={ () => filterRecipesByCategory('Meals', 'All') }
+          className="mr-2 outline outline-1 p-1 rounded-lg
+          outline-violet-600 text-sm w-20 hover:bg-violet-600 hover:text-white"
+        >
+          All
+        </button>
         {
           categories.map(({ strCategory }) => (
             <CategoryButton
@@ -35,32 +44,26 @@ function Meals() {
             />
           ))
         }
-
-        <button
-          type="button"
-          data-testid="All-category-filter"
-          onClick={ () => filterRecipesByCategory('Meals', 'All') }
-        >
-          All
-        </button>
       </div>
-
-      {
-        fetchedItems.map((meal, index) => (
-          <Link
-            key={ meal.idMeal }
-            to={ `/meals/${meal.idMeal}` }
-          >
-            <RecipeCard
-              recipe={ {
-                name: meal.strMeal,
-                image: meal.strMealThumb,
-              } }
-              index={ index }
-            />
-          </Link>
-        ))
-      }
+      <div className="flex flex-wrap p-1 items-center justify-center">
+        {
+          fetchedItems.map((meal, index) => (
+            <Link
+              key={ meal.idMeal }
+              to={ `/meals/${meal.idMeal}` }
+              className="no-underline text-black"
+            >
+              <RecipeCard
+                recipe={ {
+                  name: meal.strMeal,
+                  image: meal.strMealThumb,
+                } }
+                index={ index }
+              />
+            </Link>
+          ))
+        }
+      </div>
       <Footer />
     </div>
   );
