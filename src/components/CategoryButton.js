@@ -6,6 +6,8 @@ function CategoryButton({ name, onClick }) {
       data-testid={ `${name}-category-filter` }
       type="button"
       onClick={ onClick }
+      className="mr-2 outline outline-1 p-1 rounded-lg
+       outline-violet-600 text-sm w-20 hover:bg-violet-600 hover:text-white"
     >
       { name }
     </button>
