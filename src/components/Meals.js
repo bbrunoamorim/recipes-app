@@ -25,13 +25,13 @@ function Meals() {
     <div>
       <Header title="Meals" />
 
-      <div className="flex items-center justify-center p-1 my-2">
+      <div className="flex flex-wrap justify-center p-1 my-2">
         <button
           type="button"
           data-testid="All-category-filter"
           onClick={ () => filterRecipesByCategory('Meals', 'All') }
-          className="mr-2 outline outline-1 p-1 rounded-lg
-          outline-violet-600 text-sm w-20 hover:bg-violet-600 hover:text-white"
+          className="mr-2 outline outline-1 p-1 rounded-lg text-xs
+          outline-violet-600 w-14 h-6 hover:bg-violet-600 hover:text-white"
         >
           All
         </button>
@@ -45,7 +45,7 @@ function Meals() {
           ))
         }
       </div>
-      <div className="flex flex-wrap p-1 items-center justify-center">
+      <div className="grid grid-cols-2">
         {
           fetchedItems.map((meal, index) => (
             <Link
