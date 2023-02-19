@@ -17,7 +17,12 @@ function Login() {
       justify-center bg-[url('/public/background.jpg')]"
     >
       <form className="text-center bg-stone-100/95 p-4 mx-4 shadow rounded-lg">
-        <img src="logo.svg" alt="meal-logo" width="100px" className="mb-12 inline" />
+        <img
+          src="login-icon.svg"
+          alt="meal-logo"
+          width="100px"
+          className="mb-12 inline"
+        />
         <h1 className="mb-4 text-violet-700">Login</h1>
         <fieldset className="mb-3">
           <label htmlFor="Email" className="mb-2">
