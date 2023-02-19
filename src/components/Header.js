@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useContext } from 'react';
 import SearchBar from './SearchBar';
-import profileIcon from '../images/profileIcon.svg';
-import searchIcon from '../images/searchIcon.svg';
 import MyContext from '../context/MyContext';
 
 function Header({ title, notSearchIcon }) {
@@ -17,9 +15,9 @@ function Header({ title, notSearchIcon }) {
 
   return (
     <section>
-      <div className="flex justify-between p-2 bg-yellow-300 mb-3 items-center">
-        <img src="logo.svg" alt="logo" width="40px" className="ml-4" />
-        <h4 className="mt-2">Tchuplim Receitas</h4>
+      <div className="flex justify-between p-2 bg-violet-600 mb-3 items-center">
+        <img src="recipe.png" alt="logo" width="40px" className="ml-4" />
+        <h4 className="mt-2 text-white">Tchuplim Receitas</h4>
         <div>
           { !notSearchIcon && (
             <button
@@ -29,7 +27,7 @@ function Header({ title, notSearchIcon }) {
             >
               <img
                 data-testid="search-top-btn"
-                src={ searchIcon }
+                src="search.png"
                 alt="search-btn"
               />
             </button>
@@ -42,7 +40,7 @@ function Header({ title, notSearchIcon }) {
           >
             <img
               data-testid="profile-top-btn"
-              src={ profileIcon }
+              src="user.png"
               alt="Icon Profile"
             />
           </button>
