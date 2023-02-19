@@ -4,17 +4,18 @@ function RecipeCard({ recipe, index }) {
   return (
     <div
       data-testid={ `${index}-recipe-card` }
-      className="w-1/2 mb-4 min-w-fit px-3 py-2
-      shadow-xl mr-3 rounded-lg text-center bg-yellow-300"
+      className="max-w-sm bg-white border border-gray-200 rounded-lg
+      my-1 mx-1 shadow dark:bg-gray-800 dark:border-gray-700"
     >
       <img
         data-testid={ `${index}-card-img` }
         src={ recipe.image }
         alt={ recipe.name }
-        className="w-32"
+        className="rounded-t-lg"
       />
       <span
         data-testid={ `${index}-card-name` }
+        className="mb-3 font-normal text-gray-700 dark:text-gray-400 p-1 truncate text-xs"
       >
         { recipe.name }
       </span>

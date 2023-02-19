@@ -25,7 +25,16 @@ function Drinks() {
     <div>
       <Header title="Drinks" />
 
-      <div>
+      <div className="flex flex-wrap justify-center p-1 my-2">
+        <button
+          type="button"
+          data-testid="All-category-filter"
+          onClick={ () => filterRecipesByCategory('Drinks', 'All') }
+          className="mr-2 outline outline-1 p-1 rounded-lg text-xs
+          outline-violet-600 w-14 h-10 hover:bg-violet-600 hover:text-white"
+        >
+          All
+        </button>
         {
           categories.map(({ strCategory }) => (
             <CategoryButton
@@ -35,33 +44,27 @@ function Drinks() {
             />
           ))
         }
-
-        <button
-          type="button"
-          data-testid="All-category-filter"
-          onClick={ () => filterRecipesByCategory('Drinks', 'All') }
-        >
-          All
-        </button>
       </div>
-
-      {
-        fetchedItems.map((drink, index) => (
-          <Link
-            key={ drink.idDrink }
-            to={ `/drinks/${drink.idDrink}` }
-          >
-            <RecipeCard
+      <div className="grid grid-cols-2">
+        {
+          fetchedItems.map((drink, index) => (
+            <Link
               key={ drink.idDrink }
-              recipe={ {
-                name: drink.strDrink,
-                image: drink.strDrinkThumb,
-              } }
-              index={ index }
-            />
-          </Link>
-        ))
-      }
+              to={ `/drinks/${drink.idDrink}` }
+              className="no-underline text-black"
+            >
+              <RecipeCard
+                key={ drink.idDrink }
+                recipe={ {
+                  name: drink.strDrink,
+                  image: drink.strDrinkThumb,
+                } }
+                index={ index }
+              />
+            </Link>
+          ))
+        }
+      </div>
       <Footer />
     </div>
   );
