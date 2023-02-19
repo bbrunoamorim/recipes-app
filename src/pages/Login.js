@@ -31,7 +31,7 @@ function Login() {
               name="Email"
               value={ email }
               type="text"
-              placeholder="Digite seu e-mail"
+              placeholder="E-mail"
               onChange={ handleChangeEmail }
               className="px-3 py-2 rounded-lg w-full"
             />
@@ -42,7 +42,7 @@ function Login() {
               name="Password"
               value={ password }
               type="Password"
-              placeholder="E aqui sua senha"
+              placeholder="Password"
               onChange={ handleChangePassword }
               className="px-3 py-2 rounded-lg w-full"
             />
@@ -57,18 +57,25 @@ function Login() {
               className="mr-1
                 accent-violet-700"
             />
-            Lembrar de mim
+            Remember me
           </label>
-          <small className="text-right text-violet-500">Esqueceu sua senha?</small>
+          <small className="text-right text-violet-500">Forgot your password?</small>
         </fieldset>
         <button
           data-testid="login-submit-btn"
           type="button"
           disabled={ submitDisable }
           onClick={ handleSubmit }
-          className="bg-violet-700 text-white p-2 rounded-lg w-full hover:bg-violet-500"
+          className="bg-violet-700 text-white p-2 rounded-lg
+          w-full hover:bg-violet-500 shadow"
         >
           Login
+        </button>
+        <button
+          type="button"
+          className="bg-amber-200 rounded-lg w-full mt-2 p-1 shadow hover:bg-yellow-400"
+        >
+          Sign in
         </button>
       </form>
     </div>
