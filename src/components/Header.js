@@ -52,7 +52,12 @@ function Header({ title, notSearchIcon }) {
         ) }
       </div>
       <div className="flex items-center justify-center">
-        <img src="meal.svg" alt="meal-icon" width="60px" className="mr-5" />
+        <img
+          src={ title === 'Meals' ? 'meal.svg' : 'drink.svg' }
+          alt="meal-icon"
+          width="50px"
+          className="mr-5"
+        />
         <h1 data-testid="page-title" className="text-center mt-3">{ title }</h1>
       </div>
     </section>
