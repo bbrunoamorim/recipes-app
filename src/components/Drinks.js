@@ -25,7 +25,7 @@ function Drinks() {
     <div>
       <Header title="Drinks" />
 
-      <div className="flex flex-wrap justify-center p-1 my-2">
+      <div className="flex justify-center p-1 my-2">
         <button
           type="button"
           data-testid="All-category-filter"
