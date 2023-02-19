@@ -8,24 +8,30 @@ export default function DetailedRecipeCard() {
     <div>
       {
         detailedRecipe.map((e, index) => (
-          <div key={ index }>
+          <div key={ index } className="flex-col text-center">
             <img
               data-testid="recipe-photo"
               src={ e.strMealThumb || e.strDrinkThumb }
               alt={ e.idDrink || e.idMeal }
-              style={ { width: 200 } }
+              className="w-full rounded-t-lg shadow"
             />
-            <h3
-              data-testid="recipe-title"
+            <h2
+              className="bg-yellow-500 text-white p-3 w-full shadow mb-4"
             >
               { e.strMeal || e.strDrink }
-            </h3>
-            <p data-testid="recipe-category">
+            </h2>
+            <p className="mb-4">
               {
-                detailedRecipe[0].idMeal ? e.strCategory : e.strAlcoholic
+                detailedRecipe[0].idMeal
+                  ? `Category: ${e.strCategory}`
+                  : `Category: ${e.strCategory}`
               }
             </p>
-            <ol>
+            <h4 className="mb-4">Ingredients</h4>
+            <ul
+              className="list-disc list-inside text-justify mb-4 py-3
+              outline outline-1 outline-offset-1 mx-3 rounded-lg"
+            >
               {
                 getRecipeIngredients().map((value, i) => (
                   <li
@@ -35,15 +41,21 @@ export default function DetailedRecipeCard() {
                     { value }
                   </li>))
               }
-            </ol>
-            <p data-testid="instructions">{ e.strInstructions }</p>
+            </ul>
+            <h4 className="my-4">Instructions</h4>
+            <p
+              data-testid="instructions"
+              className="text-justify mb-4 p-3 outline outline-1
+               outline-offset-1 mx-3 rounded-lg"
+            >
+              { e.strInstructions }
+            </p>
             {
               detailedRecipe[0].idMeal ? <iframe
                 data-testid="video"
-                width="400"
-                height="250"
                 title="Embedded youtube"
                 src={ e.strYoutube.replace('watch?v=', 'embed/') }
+                className="w-full h-60 rounded-lg px-2 shadow mb-4"
               /> : null
             }
           </div>

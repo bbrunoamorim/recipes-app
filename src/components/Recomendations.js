@@ -8,8 +8,8 @@ export default function Recomendations() {
   const SIX = 6;
 
   return (
-    <div style={ { display: 'block', width: 140, padding: 5 } }>
-      <h5>Recomendações</h5>
+    <div className=" mb-16">
+      <h4 className="text-center my-3">Recommended with</h4>
       <Carousel>
         {
           recomendations.slice(0, SIX).map((recomendation, index) => (

@@ -9,7 +9,7 @@ import fetchRecomendations from '../services/fetchRecomendations';
 import Recomendations from '../components/Recomendations';
 import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../images/blackHeartIcon.svg';
+import blackHeartIcon from '../images/liked.svg';
 
 function RecipeDetails({
   history: { location: { pathname } },
@@ -158,7 +158,7 @@ function RecipeDetails({
   }, [getItem, getRecomendations, inProgressCheck, favoriteCheck, hideStartBtn]);
 
   return (
-    <div>
+    <div className="bg-zinc-100">
       <div>
         <input
           type="image"
@@ -166,7 +166,7 @@ function RecipeDetails({
           onClick={ copy }
           src={ shareIcon }
           alt="shareicon"
-          style={ { marginLeft: 10, marginRight: 10 } }
+          className="absolute top-5 right-5 w-10"
         />
         <input
           type="image"
@@ -174,6 +174,7 @@ function RecipeDetails({
           onClick={ handleSetFavorite }
           src={ favoriteRecipe ? blackHeartIcon : whiteHeartIcon }
           alt="favorite-icon"
+          className="absolute top-5 left-5 w-10"
         />
         {
           copiedLink ? <p>Link copied!</p> : null
@@ -185,13 +186,16 @@ function RecipeDetails({
         hiddenStartBtn
           ? null
           : (
-            <Link to={ `${pathname}/in-progress` }>
+            <Link
+              to={ `${pathname}/in-progress` }
+              className="no-underline text-white"
+            >
               <button
                 type="button"
                 data-testid="start-recipe-btn"
-                className="start-recipe-btn"
+                className=" bg-yellow-500/90 p-3 w-full fixed bottom-0 mb-1 rounded-lg"
               >
-                { inProgressRecipe ? 'Continue Recipe' : 'Start Recipe' }
+                { inProgressRecipe ? 'FINISH RECIPE' : 'START RECIPE' }
               </button>
             </Link>
           )
