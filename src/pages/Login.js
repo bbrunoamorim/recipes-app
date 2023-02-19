@@ -45,7 +45,13 @@ function Login() {
         </fieldset>
         <fieldset className="flex justify-between items-center mb-3">
           <label htmlFor="remember" className="text-sm">
-            <input type="checkbox" name="remember" className="mr-1 accent-violet-700" />
+            <input
+              type="checkbox"
+              name="remember"
+              id="remember"
+              className="mr-1
+                accent-violet-700"
+            />
             Lembrar de mim
           </label>
           <small className="text-right text-violet-500">Esqueceu sua senha?</small>
