@@ -1,8 +1,12 @@
 import '../styles/RecipeInProgress.css';
 import PropTypes from 'prop-types';
 import { useContext, useEffect, useCallback } from 'react';
+import clipboardCopy from 'clipboard-copy';
 import MyContext from '../context/MyContext';
 import fetchDetailsApi from '../services/fetchDetailsApi';
+import shareIcon from '../images/shareIcon.svg';
+import whiteHeartIcon from '../images/whiteHeartIcon.svg';
+import blackHeartIcon from '../images/liked.svg';
 
 function RecipesInProgress({
   history: { location: { pathname } },
@@ -11,9 +15,11 @@ function RecipesInProgress({
   const {
     detailedRecipe,
     getRecipeIngredients,
+    favoriteRecipe,
+    setCopiedLink,
+    copiedLink,
+    setFavoriteRecipe,
     setDetailedRecipe } = useContext(MyContext);
-  console.log(id);
-  console.log(detailedRecipe);
 
   const getPath = useCallback(() => {
     if (pathname.includes('meals')) {
@@ -29,41 +35,123 @@ function RecipesInProgress({
     setDetailedRecipe(data);
   }, [id, setDetailedRecipe, getPath]);
 
+  const copy = () => {
+    clipboardCopy(window.location.href);
+    setCopiedLink(true);
+  };
+
+  const updateBtnCheck = (object, favoriteItem) => {
+    if (object.some((item) => item.id === favoriteItem.id)) {
+      const removeObj = object.filter((e) => e.id !== favoriteItem.id);
+      localStorage.setItem('favoriteRecipes', JSON.stringify(removeObj));
+      setFavoriteRecipe(false);
+    }
+  };
+
+  const handleSetFavorite = () => {
+    const favoriteRecipes = localStorage.getItem('favoriteRecipes');
+
+    if (pathname.includes('meals')) {
+      const { idMeal, strArea, strCategory, strMeal, strMealThumb } = detailedRecipe[0];
+      const favoriteMeal = {
+        id: idMeal,
+        type: 'meal',
+        nationality: strArea || '',
+        category: strCategory,
+        alcoholicOrNot: '',
+        name: strMeal,
+        image: strMealThumb,
+      };
+      if (!favoriteRecipes) {
+        localStorage.setItem('favoriteRecipes', JSON.stringify([favoriteMeal]));
+        setFavoriteRecipe(true);
+      } else {
+        const parsedObj = JSON.parse(favoriteRecipes);
+        localStorage.setItem('favoriteRecipes', JSON
+          .stringify([...parsedObj, favoriteMeal]));
+        setFavoriteRecipe(true);
+        updateBtnCheck(parsedObj, favoriteMeal);
+      }
+    }
+
+    if (pathname.includes('drinks')) {
+      const { idDrink, strArea, strCategory,
+        strAlcoholic, strDrink, strDrinkThumb } = detailedRecipe[0];
+      const favoriteDrink = {
+        id: idDrink,
+        type: 'drink',
+        nationality: strArea || '',
+        category: strCategory || '',
+        alcoholicOrNot: strAlcoholic,
+        name: strDrink,
+        image: strDrinkThumb,
+      };
+      if (!favoriteRecipes) {
+        localStorage.setItem('favoriteRecipes', JSON.stringify([favoriteDrink]));
+        setFavoriteRecipe(true);
+      } else {
+        const parsedObj = JSON.parse(favoriteRecipes);
+        localStorage.setItem('favoriteRecipes', JSON
+          .stringify([...parsedObj, favoriteDrink]));
+        setFavoriteRecipe(true);
+        updateBtnCheck(parsedObj, favoriteDrink);
+      }
+    }
+  };
+
   useEffect(() => {
     getItem();
   }, [getItem]);
 
-  // const handleCheck = ({ target }) => {
-  //   const { checked, name } = target;
-  //   if (checked) {
-  //     const inputChecked = document.getElementById(name);
-  //     inputChecked.classList.add('checked');
-  //   }
-  // };
   return (
     <div>
-
-      <div>
+      <div className="flex-col text-center bg-zinc-100">
         {
           detailedRecipe.map((e, index) => (
             <div key={ index }>
+              <div>
+                <input
+                  type="image"
+                  data-testid="share-btn"
+                  onClick={ copy }
+                  src={ shareIcon }
+                  alt="shareicon"
+                  className="absolute top-5 right-5 w-10"
+                />
+                <input
+                  type="image"
+                  data-testid="favorite-btn"
+                  onClick={ handleSetFavorite }
+                  src={ favoriteRecipe ? blackHeartIcon : whiteHeartIcon }
+                  alt="favorite-icon"
+                  className="absolute top-5 left-5 w-10"
+                />
+                {
+                  copiedLink ? <p>Link copied!</p> : null
+                }
+              </div>
               <img
                 data-testid="recipe-photo"
                 src={ e.strMealThumb || e.strDrinkThumb }
                 alt={ e.idDrink || e.idMeal }
-                style={ { width: 200 } }
+                className="w-full rounded-t-lg shadow"
               />
-              <h3
-                data-testid="recipe-title"
+              <h2
+                className="bg-yellow-500 text-white p-3 w-full shadow mb-4"
               >
                 { e.strMeal || e.strDrink }
-              </h3>
-              <p data-testid="recipe-category">
+              </h2>
+              <p className="mb-4">
                 {
-                  detailedRecipe[0].idMeal ? e.strCategory : e.strAlcoholic
+                  detailedRecipe[0].idMeal
+                    ? `Category: ${e.strCategory}`
+                    : `Category: ${e.strCategory}`
                 }
               </p>
-              <ol>
+              <ul
+                className="text-justify mb-4 py-3
+              outline outline-1 outline-offset-1 mx-3 rounded-lg"
+              >
                 {
                   getRecipeIngredients().map((value, i) => (
                     <li
@@ -71,48 +159,38 @@ function RecipesInProgress({
                       data-testid={ `${i}-ingredient-name-and-measure` }
                       id={ `${i}-ingredient-step` }
                     >
-
                       <label
                         className="check-label"
                         htmlFor={ `${i}-ingredient-step` }
                         id={ `${i}-ingredient-step` }
                         data-testid={ `${i}-ingredient-step` }
                       >
-                        { value }
                         <input
-                          className="check-input"
+                          className="check-input mr-2 mb-3 accent-violet-600"
                           type="checkbox"
                           name={ `${i}-ingredient-step` }
-                          // onChange={ handleCheck }
+                          id={ `${i}-ingredient-step` }
                         />
+                        { value }
                       </label>
                     </li>
                   ))
                 }
-              </ol>
-              <p data-testid="instructions">{ e.strInstructions }</p>
+              </ul>
+              <p
+                className="text-justify mb-4 p-3 outline
+                outline-1 outline-offset-1 mx-3 rounded-lg"
+              >
+                { e.strInstructions }
+              </p>
             </div>
           ))
         }
         <button
-          data-testid="share-btn"
           type="button"
+          className="bg-yellow-500 p-3 w-full text-white mb-1"
         >
-          Compartilhar
-        </button>
-
-        <button
-          data-testid="favorite-btn"
-          type="button"
-        >
-          Favoritar
-        </button>
-
-        <button
-          data-testid="finish-recipe-btn"
-          type="button"
-        >
-          Finalizar Receita
+          FINISH RECIPE
         </button>
       </div>
 
