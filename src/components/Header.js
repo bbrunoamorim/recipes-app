@@ -17,7 +17,12 @@ function Header({ title, notSearchIcon }) {
     <section>
       <div className="flex justify-between p-2 bg-violet-600 mb-3 items-center">
         <img src="recipe.png" alt="logo" width="40px" className="ml-4" />
-        <h4 className="mt-2 text-white">Tchuplim Receitas</h4>
+        <a
+          href="/meals"
+          className="mt-2 text-white no-underline text-xl"
+        >
+          Tchuplim Receitas
+        </a>
         <div>
           { !notSearchIcon && (
             <button
