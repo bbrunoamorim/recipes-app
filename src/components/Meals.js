@@ -45,7 +45,7 @@ function Meals() {
           ))
         }
       </div>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-2 mb-12">
         {
           fetchedItems.map((meal, index) => (
             <Link
