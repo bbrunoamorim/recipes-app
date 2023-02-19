@@ -42,19 +42,23 @@ function SearchBar({ title }) {
   }
 
   return (
-    <section>
+    <section
+      className="flex-col p-2 justify-center items-center
+       text-center bg-yellow-300 mx-2 rounded-lg"
+    >
       <label htmlFor="search-input">
         <input
           type="text"
-          placeholder="Pesquisa"
+          placeholder="Search"
           data-testid="search-input"
           id="search-input"
           name="headerSearchValue"
           onChange={ handleSearchValue }
+          className="px-2 py-1 rounded-lg mb-2 mt-2"
         />
       </label>
-      <div>
-        <label htmlFor="ingredient-search-radio">
+      <div className="mb-2">
+        <label htmlFor="ingredient-search-radio" className="mr-2 accent-violet-600">
           <input
             type="radio"
             data-testid="ingredient-search-radio"
@@ -62,10 +66,11 @@ function SearchBar({ title }) {
             name="headerSearchValue"
             value="ingrediente"
             onChange={ handleSearchParameter }
+            className="mr-1"
           />
-          Ingrediente
+          Ingredient
         </label>
-        <label htmlFor="name-search-radio">
+        <label htmlFor="name-search-radio" className="mr-2 accent-violet-600">
           <input
             type="radio"
             data-testid="name-search-radio"
@@ -73,10 +78,11 @@ function SearchBar({ title }) {
             name="headerSearchValue"
             value="nome"
             onChange={ handleSearchParameter }
+            className="mr-1"
           />
-          Nome
+          Name
         </label>
-        <label htmlFor="first-letter-search-radio">
+        <label htmlFor="first-letter-search-radio" className="mr-2 accent-violet-600">
           <input
             type="radio"
             data-testid="first-letter-search-radio"
@@ -84,14 +90,16 @@ function SearchBar({ title }) {
             name="headerSearchValue"
             value="primeira-letra"
             onChange={ handleSearchParameter }
+            className="mr-1"
           />
-          Primeira letra
+          First letter
         </label>
       </div>
       <button
         type="button"
         data-testid="exec-search-btn"
         onClick={ () => handleClickFetch(title) }
+        className="bg-violet-600 text-white p-2 rounded-lg w-full mb-2"
       >
         Pesquisar
       </button>
