@@ -67,6 +67,7 @@ function SearchBar({ title }) {
             value="ingrediente"
             onChange={ handleSearchParameter }
             className="mr-1"
+            checked
           />
           Ingredient
         </label>
