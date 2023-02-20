@@ -37,7 +37,7 @@ function Header({ title, notSearchIcon }) {
 
   return (
     <section>
-      <div className="flex justify-between p-2 bg-violet-600 mb-3 items-center">
+      <div className="flex justify-between px-2 py-3 bg-violet-500 mb-3 items-center">
         <img src="recipe.png" alt="logo" width="40px" className="ml-4" />
         <a
           href="/meals"
