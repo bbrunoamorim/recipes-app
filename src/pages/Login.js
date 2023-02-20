@@ -60,7 +60,12 @@ function Login() {
             />
             Remember me
           </label>
-          <small className="text-right text-violet-700">Forgot your password?</small>
+          <small
+            className="text-right text-violet-600
+            hover:font-semibold hover:text-yellow-500"
+          >
+            Forgot your password?
+          </small>
         </fieldset>
         <button
           data-testid="login-submit-btn"
