@@ -12,17 +12,17 @@ function FavoriteRecipes() {
     const getFavoriteRecipe = JSON.parse(localStorage.getItem('favoriteRecipes'));
 
     switch (type) {
-      case 'All':
-        setRecipeStorage(JSON.parse(localStorage.getItem('favoriteRecipes')));
-        break;
-      case 'Food':
-        setRecipeStorage(getFavoriteRecipe.filter((comida) => comida.type === 'meal'));
-        break;
-      case 'Drinks':
-        setRecipeStorage(getFavoriteRecipe.filter((bebida) => bebida.type === 'drink'));
-        break;
-      default:
-        setRecipeStorage(recipeStorage);
+    case 'All':
+      setRecipeStorage(JSON.parse(localStorage.getItem('favoriteRecipes')));
+      break;
+    case 'Food':
+      setRecipeStorage(getFavoriteRecipe.filter((comida) => comida.type === 'meal'));
+      break;
+    case 'Drinks':
+      setRecipeStorage(getFavoriteRecipe.filter((bebida) => bebida.type === 'drink'));
+      break;
+    default:
+      setRecipeStorage(recipeStorage);
     }
   };
 
