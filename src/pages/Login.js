@@ -74,7 +74,7 @@ function Login() {
         </button>
         <button
           type="button"
-          className="bg-amber-200 rounded-lg w-full mt-2 p-1 shadow hover:bg-yellow-400"
+          className="bg-yellow-300 rounded-lg w-full mt-2 p-1 shadow hover:bg-yellow-400"
         >
           Sign in
         </button>
