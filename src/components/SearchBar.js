@@ -58,7 +58,7 @@ function SearchBar({ title }) {
         />
       </label>
       <div className="mb-2">
-        <label htmlFor="ingredient-search-radio" className="mr-2 accent-violet-500">
+        <label htmlFor="ingredient-search-radio" className="mr-2 accent-violet-600">
           <input
             type="radio"
             data-testid="ingredient-search-radio"
@@ -100,7 +100,7 @@ function SearchBar({ title }) {
         type="button"
         data-testid="exec-search-btn"
         onClick={ () => handleClickFetch(title) }
-        className="bg-violet-600 text-white p-2 rounded-lg w-full mb-2"
+        className="bg-violet-500 text-white p-2 rounded-lg w-full mb-2"
       >
         Pesquisar
       </button>
