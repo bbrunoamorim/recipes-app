@@ -178,7 +178,6 @@ function RecipesInProgress({
                       id={ `${i}-ingredient-step` }
                     >
                       <label
-                        className="check-label"
                         htmlFor={ `${i}-ingredient-step` }
                         id={ `${i}-ingredient-step` }
                         data-testid={ `${i}-ingredient-step` }
