@@ -3,6 +3,10 @@ import { useHistory } from 'react-router-dom';
 import { useContext } from 'react';
 import SearchBar from './SearchBar';
 import MyContext from '../context/MyContext';
+import mealIcon from '../images/meal.svg';
+import drinkIcon from '../images/drink.svg';
+import profileIcon from '../images/profile.svg';
+import likedIcon from '../images/liked.svg';
 
 function Header({ title, notSearchIcon }) {
   const { handleVisivelInput, inputVisivel } = useContext(MyContext);
@@ -12,6 +16,21 @@ function Header({ title, notSearchIcon }) {
   const profileRoute = () => (
     history.push('/profile')
   );
+
+  const iconToDisplay = () => {
+    switch (title) {
+      case 'Meals':
+        return mealIcon;
+      case 'Drinks':
+        return drinkIcon;
+      case 'Profile':
+        return profileIcon;
+      case 'Favorite Recipes':
+        return likedIcon;
+      default:
+        return null;
+    }
+  };
 
   return (
     <section>
@@ -56,14 +75,19 @@ function Header({ title, notSearchIcon }) {
           <SearchBar title={ title } />
         ) }
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex-col items-center my-4">
         <img
-          src={ title === 'Meals' ? 'meal.svg' : 'drink.svg' }
-          alt="meal-icon"
-          width="50px"
-          className="mr-5"
+          src={ iconToDisplay() }
+          alt="icon"
+          width="45px"
+          className="mx-auto mb-3"
         />
-        <h1 data-testid="page-title" className="text-center mt-3">{ title }</h1>
+        <h1
+          data-testid="page-title"
+          className="text-center mb-4 font-semibold text-3xl"
+        >
+          { title }
+        </h1>
       </div>
     </section>
   );
