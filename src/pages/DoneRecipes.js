@@ -11,9 +11,8 @@ function DoneRecipes() {
     firstLoadRecipesDone();
   }, [firstLoadRecipesDone]);
 
-  console.log(filteredDonesRecipes);
   return (
-    <div>
+    <div className="bg-zinc-50 min-h-screen flex-col items-center justify-center">
       <Header title="Done Recipes" notSearchIcon />
 
       <FiltersDoneRecipes />
