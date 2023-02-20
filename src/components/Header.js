@@ -7,6 +7,7 @@ import mealIcon from '../images/meal.svg';
 import drinkIcon from '../images/drink.svg';
 import profileIcon from '../images/profile.svg';
 import likedIcon from '../images/liked.svg';
+import doneIcon from '../images/done.png';
 
 function Header({ title, notSearchIcon }) {
   const { handleVisivelInput, inputVisivel } = useContext(MyContext);
@@ -27,6 +28,8 @@ function Header({ title, notSearchIcon }) {
         return profileIcon;
       case 'Favorite Recipes':
         return likedIcon;
+      case 'Done Recipes':
+        return doneIcon;
       default:
         return null;
     }
