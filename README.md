@@ -11,11 +11,11 @@ Do it yourself is the front-end side of a recipes app developed to be used in mo
 ### How to install
 
 ```bash
-# Clone this repository
+# Clone this repo
   git clone https://github.com/bbrunoamorim/recipes-app
 
 # Install dependencies
-  npm install
+  npm i
 
 # Run the app
   npm start
