@@ -4,7 +4,8 @@ function Footer() {
   return (
     <footer
       data-testid="footer"
-      className="flex bg-violet-500 min-w-full justify-between px-2 py-3"
+      className="flex bg-violet-500 min-w-full
+      justify-between px-2 py-3 fixed bottom-0 mt-2"
     >
       <Link to="/drinks">
         <img
