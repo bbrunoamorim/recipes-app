@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import MyContext from '../context/MyContext';
+import login from '../images/login.png';
 
 function Login() {
   const {
@@ -13,17 +14,17 @@ function Login() {
 
   return (
     <div
-      className="flex min-h-screen items-center
+      className="flex min-h-screen items-center bg-cover
       justify-center bg-[url('/public/background.jpg')]"
     >
-      <form className="text-center bg-stone-100/95 p-4 mx-4 shadow rounded-lg">
+      <form className="text-center bg-white/50 p-4 mx-4 shadow rounded-lg">
         <img
-          src="login-icon.svg"
+          src={ login }
           alt="meal-logo"
           width="100px"
           className="mb-12 inline"
         />
-        <h1 className="mb-4 text-violet-700">Login</h1>
+        <h1 className="mb-4 text-violet-700 text-5xl">Login</h1>
         <fieldset className="mb-3">
           <label htmlFor="Email" className="mb-2">
             <input
@@ -59,7 +60,7 @@ function Login() {
             />
             Remember me
           </label>
-          <small className="text-right text-violet-500">Forgot your password?</small>
+          <small className="text-right text-violet-700">Forgot your password?</small>
         </fieldset>
         <button
           data-testid="login-submit-btn"
