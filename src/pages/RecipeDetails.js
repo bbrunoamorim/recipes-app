@@ -211,7 +211,7 @@ function RecipeDetails({
               <button
                 type="button"
                 data-testid="start-recipe-btn"
-                className=" bg-yellow-500/90 p-3 w-full fixed bottom-0 mb-1 rounded-lg"
+                className=" bg-violet-500/90 p-3 w-full fixed bottom-0 mb-1 rounded-lg"
               >
                 { inProgressRecipe ? 'FINISH RECIPE' : 'START RECIPE' }
               </button>

@@ -58,7 +58,7 @@ function SearchBar({ title }) {
         />
       </label>
       <div className="mb-2">
-        <label htmlFor="ingredient-search-radio" className="mr-2 accent-violet-600">
+        <label htmlFor="ingredient-search-radio" className="mr-2 accent-violet-500">
           <input
             type="radio"
             data-testid="ingredient-search-radio"

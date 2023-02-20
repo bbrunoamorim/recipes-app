@@ -105,7 +105,7 @@ function RecipesInProgress({
 
   return (
     <div>
-      <div className="flex-col text-center bg-zinc-100">
+      <div className="flex-col text-center bg-zinc-50">
         {
           detailedRecipe.map((e, index) => (
             <div key={ index }>
@@ -137,7 +137,7 @@ function RecipesInProgress({
                 className="w-full rounded-t-lg shadow"
               />
               <h2
-                className="bg-yellow-500 text-white p-3 w-full shadow mb-4"
+                className="bg-violet-500 text-white p-3 w-full shadow mb-4"
               >
                 { e.strMeal || e.strDrink }
               </h2>
@@ -188,7 +188,7 @@ function RecipesInProgress({
         }
         <button
           type="button"
-          className="bg-yellow-500 p-3 w-full text-white mb-1"
+          className="bg-violet-500 p-3 w-full text-white mb-1"
         >
           FINISH RECIPE
         </button>

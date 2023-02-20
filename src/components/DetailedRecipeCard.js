@@ -16,7 +16,7 @@ export default function DetailedRecipeCard() {
               className="w-full rounded-t-lg shadow"
             />
             <h2
-              className="bg-yellow-500 text-white p-3 w-full shadow mb-4"
+              className="bg-violet-500/95 text-white p-3 w-full shadow mb-4"
             >
               { e.strMeal || e.strDrink }
             </h2>
