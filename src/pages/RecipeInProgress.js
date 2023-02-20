@@ -19,7 +19,9 @@ function RecipesInProgress({
     setCopiedLink,
     copiedLink,
     setFavoriteRecipe,
-    setDetailedRecipe } = useContext(MyContext);
+    setDetailedRecipe,
+    setIsAlertVisible,
+    isAlertVisible } = useContext(MyContext);
 
   const getPath = useCallback(() => {
     if (pathname.includes('meals')) {
@@ -36,8 +38,15 @@ function RecipesInProgress({
   }, [id, setDetailedRecipe, getPath]);
 
   const copy = () => {
+    const DELAY = 3000;
+    setIsAlertVisible(true);
+
     clipboardCopy(window.location.href);
     setCopiedLink(true);
+
+    setTimeout(() => {
+      setIsAlertVisible(false);
+    }, DELAY);
   };
 
   const updateBtnCheck = (object, favoriteItem) => {
@@ -127,7 +136,16 @@ function RecipesInProgress({
                   className="absolute top-5 left-5 w-10"
                 />
                 {
-                  copiedLink ? <p>Link copied!</p> : null
+                  copiedLink && isAlertVisible
+                    ? (
+                      <p
+                        className="absolute right-4 top-16 font-semibold
+                text-xl animate-pulse text-sky-400"
+                      >
+                        Copied link!
+                      </p>
+                    )
+                    : null
                 }
               </div>
               <img
