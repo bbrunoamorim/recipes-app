@@ -102,7 +102,7 @@ function SearchBar({ title }) {
         onClick={ () => handleClickFetch(title) }
         className="bg-violet-500 text-white p-2 rounded-lg w-full mb-2"
       >
-        Pesquisar
+        Search
       </button>
     </section>
   );
