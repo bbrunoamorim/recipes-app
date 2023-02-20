@@ -26,6 +26,7 @@ function Provider({ children }) {
   const [favoriteRecipe, setFavoriteRecipe] = useState(false);
   const [hiddenStartBtn, setHiddenStartBtn] = useState(false);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
+  const [fetching, setFetching] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -74,15 +75,21 @@ function Provider({ children }) {
   }, []);
 
   const firstLoadFetch = useCallback(async (title) => {
+    setFetching(true);
     const data = await fetchApi('nome', '', title);
     const numberOfRecipes = 12;
     setFetchedItems(data.slice(0, numberOfRecipes));
+    setFetching(false);
   }, []);
 
   const loadCategories = useCallback(async (recipesType) => {
+    setFetching(true);
+
     const fetchedCategories = await fetchCategories(recipesType);
 
     setCategories(fetchedCategories);
+
+    setFetching(false);
   }, []);
 
   const filterRecipesByCategory = useCallback(async (recipesType, category) => {
@@ -175,6 +182,7 @@ function Provider({ children }) {
     getRecipeIngredients,
     isAlertVisible,
     setIsAlertVisible,
+    fetching,
   }), [
     email,
     password,
@@ -206,6 +214,7 @@ function Provider({ children }) {
     hiddenStartBtn,
     getRecipeIngredients,
     isAlertVisible,
+    fetching,
   ]);
 
   return (

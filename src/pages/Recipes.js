@@ -5,7 +5,7 @@ import Drinks from '../components/Drinks';
 
 function Recipes({ location: { pathname } }) {
   return (
-    <div className="bg-zinc-50">
+    <div className="bg-zinc-50 min-h-screen">
       {
         pathname.includes('meals')
           ? <Meals />
