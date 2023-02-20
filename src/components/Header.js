@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useContext } from 'react';
 import SearchBar from './SearchBar';
 import MyContext from '../context/MyContext';
-import mealIcon from '../images/meal.svg';
+import mealIcon from '../images/mainMeal.png';
 import drinkIcon from '../images/drink.svg';
 import profileIcon from '../images/profile.svg';
 import likedIcon from '../images/liked.svg';
@@ -20,18 +20,18 @@ function Header({ title, notSearchIcon }) {
 
   const iconToDisplay = () => {
     switch (title) {
-      case 'Meals':
-        return mealIcon;
-      case 'Drinks':
-        return drinkIcon;
-      case 'Profile':
-        return profileIcon;
-      case 'Favorite Recipes':
-        return likedIcon;
-      case 'Done Recipes':
-        return doneIcon;
-      default:
-        return null;
+    case 'Meals':
+      return mealIcon;
+    case 'Drinks':
+      return drinkIcon;
+    case 'Profile':
+      return profileIcon;
+    case 'Favorite Recipes':
+      return likedIcon;
+    case 'Done Recipes':
+      return doneIcon;
+    default:
+      return null;
     }
   };
 
@@ -41,9 +41,9 @@ function Header({ title, notSearchIcon }) {
         <img src="recipe.png" alt="logo" width="40px" className="ml-4" />
         <a
           href="/meals"
-          className="mt-2 text-white no-underline text-xl"
+          className="mt-2 text-white no-underline text-2xl"
         >
-          Tchuplim Receitas
+          Do It Yourself
         </a>
         <div>
           { !notSearchIcon && (
