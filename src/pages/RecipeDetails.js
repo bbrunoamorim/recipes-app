@@ -26,7 +26,9 @@ function RecipeDetails({
     favoriteRecipe,
     setFavoriteRecipe,
     hiddenStartBtn,
-    setHiddenStartBtn } = useContext(MyContext);
+    setHiddenStartBtn,
+    isAlertVisible,
+    setIsAlertVisible } = useContext(MyContext);
 
   const getPath = useCallback(() => {
     if (pathname.includes('meals')) {
@@ -77,8 +79,15 @@ function RecipeDetails({
   }, [id, pathname, setInProgressRecipe]);
 
   const copy = () => {
+    const DELAY = 3000;
+    setIsAlertVisible(true);
+
     clipboardCopy(window.location.href);
     setCopiedLink(true);
+
+    setTimeout(() => {
+      setIsAlertVisible(false);
+    }, DELAY);
   };
 
   const updateBtnCheck = (object, favoriteItem) => {
@@ -177,7 +186,16 @@ function RecipeDetails({
           className="absolute top-5 left-5 w-10"
         />
         {
-          copiedLink ? <p>Link copied!</p> : null
+          copiedLink && isAlertVisible
+            ? (
+              <p
+                className="absolute right-4 top-16 font-semibold
+                text-xl animate-pulse text-sky-400"
+              >
+                Copied link!
+              </p>
+            )
+            : null
         }
       </div>
       <DetailedRecipeCard />

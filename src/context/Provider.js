@@ -25,6 +25,7 @@ function Provider({ children }) {
   const [copiedLink, setCopiedLink] = useState(false);
   const [favoriteRecipe, setFavoriteRecipe] = useState(false);
   const [hiddenStartBtn, setHiddenStartBtn] = useState(false);
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -172,6 +173,8 @@ function Provider({ children }) {
     hiddenStartBtn,
     setHiddenStartBtn,
     getRecipeIngredients,
+    isAlertVisible,
+    setIsAlertVisible,
   }), [
     email,
     password,
@@ -202,6 +205,7 @@ function Provider({ children }) {
     favoriteRecipe,
     hiddenStartBtn,
     getRecipeIngredients,
+    isAlertVisible,
   ]);
 
   return (
