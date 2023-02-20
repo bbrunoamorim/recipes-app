@@ -93,6 +93,7 @@ function Provider({ children }) {
   }, []);
 
   const filterRecipesByCategory = useCallback(async (recipesType, category) => {
+    setFetching(true);
     if (selectedCategory === category || category === 'All') {
       await firstLoadFetch(recipesType);
 
@@ -105,6 +106,7 @@ function Provider({ children }) {
 
     setFetchedItems(filteredRecipesByCategory);
     setSelectedCategory(category);
+    setFetching(false);
   }, [firstLoadFetch, selectedCategory]);
 
   const handleSubmit = useCallback(() => {
