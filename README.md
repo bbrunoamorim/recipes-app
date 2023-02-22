@@ -20,5 +20,5 @@ Do it yourself is the front-end side of a recipes app developed to be used in mo
 # Run the app
   npm start
 
-# You can see it running here:
+# You're welcome to see it running here:
 # https://do-it-yourself-seven.vercel.app/
