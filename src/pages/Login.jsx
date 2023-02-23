@@ -15,7 +15,7 @@ export default function Login() {
   return (
     <div>
       <h1
-        className="text-center my-5 text-violet-700 font-dancing text-5xl"
+        className="text-center my-5 text-orange-500 font-dancing text-5xl"
       >
         Do It Yourself
       </h1>
@@ -23,10 +23,11 @@ export default function Login() {
         src={ loginImage }
         alt="meal-logo"
         width="200px"
-        className="mx-auto rounded-full w-72 h-72 p-2 my-2 shadow-2xl shadow-purple-400"
+        className="mx-auto rounded-full w-72 h-72 p-2 my-2
+        shadow-2xl shadow-teal-100 object-cover"
       />
       <form className="text-center p-4 w-5/6 mx-auto">
-        <h1 className="mb-4 text-violet-700 text-4xl">Login</h1>
+        <h1 className="mb-4 text-orange-400 text-4xl font-outfit">Login</h1>
         <fieldset className="mb-1">
           <label htmlFor="Email" className="mb-2 w-full">
             <input
@@ -35,7 +36,8 @@ export default function Login() {
               type="text"
               placeholder="E-mail"
               onChange={ handleChangeEmail }
-              className="p-2 rounded-lg border-2 border-purple-600 shadow w-5/6"
+              className="p-2 rounded-lg border-2 border-orange-400
+              shadow w-5/6 font-outfit"
             />
           </label>
         </fieldset>
@@ -47,22 +49,22 @@ export default function Login() {
             type="Password"
             placeholder="Password"
             onChange={ handleChangePassword }
-            className="p-2 rounded-lg border-2 border-purple-600 shadow w-5/6"
+            className="p-2 rounded-lg border-2 border-orange-400 shadow w-5/6 font-outfit"
           />
         </label>
         <fieldset className="flex justify-between items-center mx-auto my-3 w-5/6">
-          <label htmlFor="remember" className="text-xs">
+          <label htmlFor="remember" className="text-xs font-outfit">
             <input
               type="checkbox"
               name="remember"
               id="remember"
-              className="mr-1 accent-violet-700"
+              className="mr-1 accent-orange-500"
             />
             Remember me
           </label>
           <small
-            className="text-right text-violet-600 cursor-pointer
-            text-xs hover:font-semibold hover:text-yellow-400"
+            className="text-right text-orange-500 cursor-pointer
+            text-xs hover:font-semibold hover:text-teal-300 font-outfit"
           >
             Forgot your password?
           </small>
@@ -72,15 +74,17 @@ export default function Login() {
           type="button"
           disabled={ submitDisable }
           onClick={ handleSubmit }
-          className="bg-violet-700 text-white p-2 rounded-lg w-5/6 cursor-pointer
-          transition-all duration-200 hover:bg-violet-500 shadow"
+          className="bg-orange-500 text-white p-2 rounded-lg w-5/6 cursor-pointer
+          transition-all duration-200 hover:bg-orange-300 hover:font-medium
+          shadow font-outfit"
         >
           Login
         </button>
         <button
           type="button"
           className="bg-yellow-200 rounded-lg w-5/6 mt-2 p-1 shadow
-          transition-all duration-200 hover:bg-yellow-300"
+          transition-all duration-200 hover:bg-yellow-500 font-outfit
+          hover:font-medium"
         >
           Sign in
         </button>

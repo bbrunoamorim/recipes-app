@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     fontFamily: {
       dancing: 'Dancing Script, cursive',
+      outfit: 'Outfit, sans-serif',
     },
     extend: {},
   },
