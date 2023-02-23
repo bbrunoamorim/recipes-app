@@ -23,9 +23,9 @@ export default function Login() {
         src={ loginImage }
         alt="meal-logo"
         width="200px"
-        className="mx-auto rounded-full w-72 h-72 p-2 my-2"
+        className="mx-auto rounded-full w-72 h-72 p-2 my-2 shadow-2xl shadow-purple-400"
       />
-      <form className="text-center p-4 w-3/4 mx-auto">
+      <form className="text-center p-4 w-5/6 mx-auto">
         <h1 className="mb-4 text-violet-700 text-4xl">Login</h1>
         <fieldset className="mb-1">
           <label htmlFor="Email" className="mb-2 w-full">
@@ -35,7 +35,7 @@ export default function Login() {
               type="text"
               placeholder="E-mail"
               onChange={ handleChangeEmail }
-              className="p-2 rounded-lg border-2 border-purple-600 shadow w-3/4"
+              className="p-2 rounded-lg border-2 border-purple-600 shadow w-5/6"
             />
           </label>
         </fieldset>
@@ -47,10 +47,10 @@ export default function Login() {
             type="Password"
             placeholder="Password"
             onChange={ handleChangePassword }
-            className="p-2 rounded-lg border-2 border-purple-600 shadow w-3/4"
+            className="p-2 rounded-lg border-2 border-purple-600 shadow w-5/6"
           />
         </label>
-        <fieldset className="flex justify-around items-center my-3">
+        <fieldset className="flex justify-between items-center mx-auto my-3 w-5/6">
           <label htmlFor="remember" className="text-xs">
             <input
               type="checkbox"
@@ -72,14 +72,14 @@ export default function Login() {
           type="button"
           disabled={ submitDisable }
           onClick={ handleSubmit }
-          className="bg-violet-700 text-white p-2 rounded-lg w-3/4 cursor-pointer
+          className="bg-violet-700 text-white p-2 rounded-lg w-5/6 cursor-pointer
           transition-all duration-200 hover:bg-violet-500 shadow"
         >
           Login
         </button>
         <button
           type="button"
-          className="bg-yellow-200 rounded-lg w-3/4 mt-2 p-1 shadow
+          className="bg-yellow-200 rounded-lg w-5/6 mt-2 p-1 shadow
           transition-all duration-200 hover:bg-yellow-300"
         >
           Sign in
