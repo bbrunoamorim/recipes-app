@@ -24,7 +24,7 @@ export default function Login() {
         alt="meal-logo"
         width="200px"
         className="mx-auto rounded-full w-72 h-72 p-2 my-2
-        shadow-2xl shadow-teal-100 object-cover"
+        shadow-2xl shadow-emerald-100 object-cover"
       />
       <form className="text-center p-4 w-5/6 mx-auto">
         <h1 className="mb-4 text-orange-400 text-4xl font-outfit">Login</h1>
@@ -58,13 +58,13 @@ export default function Login() {
               type="checkbox"
               name="remember"
               id="remember"
-              className="mr-1 accent-orange-500"
+              className="mr-1 accent-emerald-300"
             />
             Remember me
           </label>
           <small
             className="text-right text-orange-500 cursor-pointer
-            text-xs hover:font-semibold hover:text-teal-300 font-outfit"
+            text-xs hover:font-semibold hover:text-emerald-300 font-outfit"
           >
             Forgot your password?
           </small>
@@ -82,8 +82,8 @@ export default function Login() {
         </button>
         <button
           type="button"
-          className="bg-yellow-200 rounded-lg w-5/6 mt-2 p-1 shadow
-          transition-all duration-200 hover:bg-yellow-500 font-outfit
+          className="bg-emerald-200 rounded-lg w-5/6 mt-2 p-1 shadow
+          transition-all duration-200 hover:bg-emerald-400 font-outfit
           hover:font-medium"
         >
           Sign in
