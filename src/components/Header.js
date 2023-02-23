@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
 import { useContext } from 'react';
-import SearchBar from './SearchBar';
+import { useHistory } from 'react-router-dom';
 import MyContext from '../context/MyContext';
-import mealIcon from '../images/mainMeal.png';
-import drinkIcon from '../images/drink.svg';
-import profileIcon from '../images/profile.svg';
-import likedIcon from '../images/liked.svg';
 import doneIcon from '../images/done.png';
+import drinkIcon from '../images/drink.svg';
+import likedIcon from '../images/liked.svg';
+import mealIcon from '../images/mainMeal.png';
+import profileIcon from '../images/profile.svg';
+import searchIcon from '../images/search.svg';
+import userIcon from '../images/user.svg';
+import SearchBar from './SearchBar';
 
 function Header({ title, notSearchIcon }) {
   const { handleVisivelInput, inputVisivel } = useContext(MyContext);
@@ -37,11 +39,10 @@ function Header({ title, notSearchIcon }) {
 
   return (
     <section>
-      <div className="flex justify-between px-2 py-3 bg-violet-500 mb-3 items-center">
-        <img src="recipe.png" alt="logo" width="40px" className="ml-4" />
+      <div className="flex justify-between px-2 py-3 bg-orange-400 items-center">
         <a
           href="/meals"
-          className="mt-2 text-white no-underline text-2xl"
+          className="ml-3 text-white no-underline text-3xl font-dancing font-semibold"
         >
           Do It Yourself
         </a>
@@ -49,26 +50,24 @@ function Header({ title, notSearchIcon }) {
           { !notSearchIcon && (
             <button
               type="button"
-              data-testid="search-btn"
               onClick={ handleVisivelInput }
             >
               <img
-                data-testid="search-top-btn"
-                src="search.png"
+                src={ searchIcon }
                 alt="search-btn"
+                className="w-6"
               />
             </button>
           ) }
           <button
             type="button"
-            data-testid="profile-btn"
             onClick={ profileRoute }
             className="ml-8 mr-4"
           >
             <img
-              data-testid="profile-top-btn"
-              src="user.png"
+              src={ userIcon }
               alt="Icon Profile"
+              className="w-6"
             />
           </button>
         </div>
@@ -86,8 +85,7 @@ function Header({ title, notSearchIcon }) {
           className="mx-auto mb-3"
         />
         <h1
-          data-testid="page-title"
-          className="text-center mb-4 font-semibold text-3xl"
+          className="text-center mb-4 font-semibold text-3xl font-outfit text-orange-400"
         >
           { title }
         </h1>
