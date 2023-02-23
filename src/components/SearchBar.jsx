@@ -1,5 +1,5 @@
-import { useCallback, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useCallback, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import MyContext from '../context/MyContext';
 import fetchApi from '../services/fetchApi';
@@ -42,11 +42,8 @@ function SearchBar({ title }) {
   }
 
   return (
-    <section
-      className="flex-col p-2 justify-center items-center
-       text-center bg-yellow-300 mx-2 rounded-lg"
-    >
-      <label htmlFor="search-input">
+    <section className="p-2 text-center bg-orange-400">
+      <label htmlFor="search-input" className="flex items-center justify-center">
         <input
           type="text"
           placeholder="Search"
@@ -54,11 +51,11 @@ function SearchBar({ title }) {
           id="search-input"
           name="headerSearchValue"
           onChange={ handleSearchValue }
-          className="px-2 py-1 rounded-lg mb-2 mt-2"
+          className="px-2 py-1 rounded-lg mb-2 mt-2 w-4/6 max-w-md"
         />
       </label>
-      <div className="mb-2">
-        <label htmlFor="ingredient-search-radio" className="mr-2 accent-violet-600">
+      <div className="my-2 flex items-center justify-center">
+        <label htmlFor="ingredient-search-radio" className="mr-2 accent-emerald-300">
           <input
             type="radio"
             data-testid="ingredient-search-radio"
@@ -66,12 +63,11 @@ function SearchBar({ title }) {
             name="headerSearchValue"
             value="ingrediente"
             onChange={ handleSearchParameter }
-            className="mr-1"
-            checked
+            className="mr-2"
           />
           Ingredient
         </label>
-        <label htmlFor="name-search-radio" className="mr-2 accent-violet-600">
+        <label htmlFor="name-search-radio" className="mr-2 accent-emerald-300">
           <input
             type="radio"
             data-testid="name-search-radio"
@@ -79,11 +75,11 @@ function SearchBar({ title }) {
             name="headerSearchValue"
             value="nome"
             onChange={ handleSearchParameter }
-            className="mr-1"
+            className="mr-2"
           />
           Name
         </label>
-        <label htmlFor="first-letter-search-radio" className="mr-2 accent-violet-600">
+        <label htmlFor="first-letter-search-radio" className="mr-2 accent-emerald-300">
           <input
             type="radio"
             data-testid="first-letter-search-radio"
@@ -91,7 +87,7 @@ function SearchBar({ title }) {
             name="headerSearchValue"
             value="primeira-letra"
             onChange={ handleSearchParameter }
-            className="mr-1"
+            className="mr-2"
           />
           First letter
         </label>
@@ -100,7 +96,8 @@ function SearchBar({ title }) {
         type="button"
         data-testid="exec-search-btn"
         onClick={ () => handleClickFetch(title) }
-        className="bg-violet-500 text-white p-2 rounded-lg w-full mb-2"
+        className="bg-emerald-200 p-2 rounded-lg w-4/6 mb-2 font-medium max-w-md
+        font-outfit hover:font-semibold hover:bg-emerald-300 transition-all duration-200"
       >
         Search
       </button>
