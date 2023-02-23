@@ -1,12 +1,12 @@
 import { useContext, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
 import MyContext from '../context/MyContext';
-import RecipeCard from './RecipeCard';
 import CategoryButton from './CategoryButton';
+import Footer from './Footer';
+import Header from './Header';
 import Loading from './Loading';
+import RecipeCard from './RecipeCard';
 
 function Meals() {
   const {
@@ -31,13 +31,14 @@ function Meals() {
           ? <Loading />
           : (
             <>
-              <div className="flex justify-center p-1 my-2">
+              <div className="flex flex-wrap justify-center items-center p-1 my-2 gap-2">
                 <button
                   type="button"
                   data-testid="All-category-filter"
                   onClick={ () => filterRecipesByCategory('Meals', 'All') }
                   className="mr-2 outline outline-1 p-1 rounded-lg text-xs
-            outline-violet-600 w-14 h-6 hover:bg-violet-600 hover:text-white"
+                outline-emerald-400 w-14 h-10 hover:bg-orange-400 hover:text-white
+                hover:font-medium hover:outline-2 transition-all duration-150"
                 >
                   All
                 </button>
