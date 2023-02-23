@@ -35,7 +35,6 @@ export default function Drinks() {
               <div className="flex flex-wrap justify-center items-center p-1 my-2 gap-2">
                 <button
                   type="button"
-                  data-testid="All-category-filter"
                   onClick={ () => filterRecipesByCategory('Drinks', 'All') }
                   className="mr-2 outline outline-1 p-1 rounded-lg text-xs
                   outline-emerald-400 w-20 h-10 hover:bg-orange-400 hover:text-white
