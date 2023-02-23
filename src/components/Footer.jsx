@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import meal from '../images/meal.png';
+import cocktail from '../images/cocktail.png';
 
-function Footer() {
+export default function Footer() {
   return (
     <footer
       className="fixed bottom-0 w-full mb-2"
@@ -11,7 +13,7 @@ function Footer() {
       >
         <Link to="/drinks">
           <img
-            src="cocktail.png"
+            src={ cocktail }
             alt="Ícone de Bebida"
             className="ml-3"
           />
@@ -19,7 +21,7 @@ function Footer() {
 
         <Link to="/meals">
           <img
-            src="meal.png"
+            src={ meal }
             alt="Ícone de Comida"
             className="mr-3"
           />
@@ -28,5 +30,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;
