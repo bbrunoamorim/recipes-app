@@ -5,8 +5,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Cantarell, sans-serif',
-      ],
+      dancing: 'Dancing Script, cursive',
     },
     extend: {},
   },
