@@ -42,7 +42,7 @@ function SearchBar({ title }) {
   }
 
   return (
-    <section className="p-2 text-center bg-orange-400">
+    <section className="p-2 text-center bg-orange-400 font-outfit">
       <label htmlFor="search-input" className="flex items-center justify-center">
         <input
           type="text"
@@ -97,7 +97,7 @@ function SearchBar({ title }) {
         data-testid="exec-search-btn"
         onClick={ () => handleClickFetch(title) }
         className="bg-emerald-200 p-2 rounded-lg w-4/6 mb-2 font-medium max-w-md
-        font-outfit hover:font-semibold hover:bg-emerald-300 transition-all duration-200"
+        hover:font-semibold hover:bg-emerald-300 transition-all duration-200"
       >
         Search
       </button>
