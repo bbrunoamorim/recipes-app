@@ -4,7 +4,7 @@ import DoneRecipeCard from '../components/DoneRecipeCard';
 import FiltersDoneRecipes from '../components/FiltersDoneRecipes';
 import MyContext from '../context/MyContext';
 
-function DoneRecipes() {
+export default function DoneRecipes() {
   const { filteredDonesRecipes, firstLoadRecipesDone } = useContext(MyContext);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function DoneRecipes() {
   }, [firstLoadRecipesDone]);
 
   return (
-    <div className="bg-zinc-50 min-h-screen flex-col items-center justify-center">
+    <div className="flex-col items-center justify-center">
       <Header title="Done Recipes" notSearchIcon />
 
       <FiltersDoneRecipes />
@@ -29,5 +29,3 @@ function DoneRecipes() {
     </div>
   );
 }
-
-export default DoneRecipes;

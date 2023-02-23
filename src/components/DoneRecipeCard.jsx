@@ -6,7 +6,7 @@ import shareIcon from '../images/shareIcon.svg';
 
 const copy = require('clipboard-copy');
 
-function DoneRecipeCard({
+export default function DoneRecipeCard({
   doneRecipe: {
     id,
     type,
@@ -46,12 +46,12 @@ function DoneRecipeCard({
         type === 'meal'
           ? (
             <span data-testid={ `${index}-horizontal-top-text` }>
-              {`${nationality} - ${category}`}
+              { `${nationality} - ${category}` }
             </span>
           )
           : (
             <span data-testid={ `${index}-horizontal-top-text` }>
-              {alcoholicOrNot}
+              { alcoholicOrNot }
             </span>
           )
       }
@@ -114,5 +114,3 @@ DoneRecipeCard.propTypes = {
   }).isRequired,
   index: PropTypes.number.isRequired,
 };
-
-export default DoneRecipeCard;
