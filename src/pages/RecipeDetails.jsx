@@ -167,7 +167,7 @@ function RecipeDetails({
   }, [getItem, getRecomendations, inProgressCheck, favoriteCheck, hideStartBtn]);
 
   return (
-    <div className="bg-zinc-100">
+    <div className="font-outfit">
       <div>
         <input
           type="image"
@@ -175,7 +175,7 @@ function RecipeDetails({
           onClick={ copy }
           src={ shareIcon }
           alt="shareicon"
-          className="absolute top-5 right-5 w-10"
+          className="absolute top-5 right-5 w-7"
         />
         <input
           type="image"
@@ -183,14 +183,14 @@ function RecipeDetails({
           onClick={ handleSetFavorite }
           src={ favoriteRecipe ? blackHeartIcon : whiteHeartIcon }
           alt="favorite-icon"
-          className="absolute top-5 left-5 w-10"
+          className="absolute top-5 left-5 w-7"
         />
         {
           copiedLink && isAlertVisible
             ? (
               <p
                 className="absolute right-4 top-16 font-semibold
-                text-xl animate-pulse text-sky-400"
+                text-xl animate-pulse text-orange-400"
               >
                 Copied link!
               </p>
@@ -206,12 +206,13 @@ function RecipeDetails({
           : (
             <Link
               to={ `${pathname}/in-progress` }
-              className="no-underline text-white"
+              className="no-underline text-white fixed bottom-0 mb-1 w-full"
             >
               <button
                 type="button"
-                data-testid="start-recipe-btn"
-                className=" bg-violet-500/90 p-3 w-full fixed bottom-0 mb-1 rounded-lg"
+                className=" bg-orange-400/90 p-2 w-5/6 rounded-lg mx-auto block
+                hover:bg-orange-500/90 hover:font-medium transition-all duration-150
+                max-w-lg"
               >
                 { inProgressRecipe ? 'FINISH RECIPE' : 'START RECIPE' }
               </button>

@@ -10,13 +10,14 @@ export default function DetailedRecipeCard() {
         detailedRecipe.map((e, index) => (
           <div key={ index } className="flex-col text-center">
             <img
-              data-testid="recipe-photo"
               src={ e.strMealThumb || e.strDrinkThumb }
               alt={ e.idDrink || e.idMeal }
-              className="w-full rounded-t-lg shadow"
+              className="rounded-full w-2/5 h-w-2/5 mx-auto my-4
+              max-w-sm shadow-2xl object-cover"
             />
             <h2
-              className="bg-violet-500/95 text-white p-3 w-full shadow mb-4"
+              className="bg-orange-400/95 text-white p-2 w-5/6
+              shadow my-4 rounded-full mx-auto max-w-lg"
             >
               { e.strMeal || e.strDrink }
             </h2>
@@ -30,13 +31,12 @@ export default function DetailedRecipeCard() {
             <h4 className="mb-4">Ingredients</h4>
             <ul
               className="list-disc list-inside text-justify mb-4 py-3
-              outline outline-1 outline-offset-1 mx-3 rounded-lg"
+              text-white rounded-lg bg-orange-400 max-w-lg mx-auto"
             >
               {
                 getRecipeIngredients().map((value, i) => (
                   <li
                     key={ i }
-                    data-testid={ `${i}-ingredient-name-and-measure` }
                   >
                     { value }
                   </li>))
@@ -44,18 +44,16 @@ export default function DetailedRecipeCard() {
             </ul>
             <h4 className="my-4">Instructions</h4>
             <p
-              data-testid="instructions"
-              className="text-justify mb-4 p-3 outline outline-1
-               outline-offset-1 mx-3 rounded-lg"
+              className="text-justify mb-4 p-3 bg-orange-400
+              rounded-lg text-white  max-w-lg mx-auto"
             >
               { e.strInstructions }
             </p>
             {
               detailedRecipe[0].idMeal ? <iframe
-                data-testid="video"
                 title="Embedded youtube"
                 src={ e.strYoutube.replace('watch?v=', 'embed/') }
-                className="w-full h-60 rounded-lg px-2 shadow mb-4"
+                className="mx-auto w-96 h-56"
               /> : null
             }
           </div>
