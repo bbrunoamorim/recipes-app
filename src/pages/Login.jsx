@@ -37,7 +37,7 @@ export default function Login() {
               placeholder="E-mail"
               onChange={ handleChangeEmail }
               className="p-2 rounded-lg border-2 border-orange-400
-              shadow w-5/6 font-outfit"
+              max-w-md shadow w-5/6 font-outfit"
             />
           </label>
         </fieldset>
@@ -49,10 +49,14 @@ export default function Login() {
             type="Password"
             placeholder="Password"
             onChange={ handleChangePassword }
-            className="p-2 rounded-lg border-2 border-orange-400 shadow w-5/6 font-outfit"
+            className="p-2 rounded-lg border-2 border-orange-400 shadow
+            w-5/6 font-outfit max-w-md"
           />
         </label>
-        <fieldset className="flex justify-between items-center mx-auto my-3 w-5/6">
+        <fieldset
+          className="flex justify-between items-center
+          mx-auto my-3 w-5/6 max-w-md"
+        >
           <label htmlFor="remember" className="text-xs font-outfit">
             <input
               type="checkbox"
@@ -69,25 +73,27 @@ export default function Login() {
             Forgot your password?
           </small>
         </fieldset>
-        <button
-          data-testid="login-submit-btn"
-          type="button"
-          disabled={ submitDisable }
-          onClick={ handleSubmit }
-          className="bg-orange-500 text-white p-2 rounded-lg w-5/6 cursor-pointer
+        <fieldset className="flex-col">
+          <button
+            data-testid="login-submit-btn"
+            type="button"
+            disabled={ submitDisable }
+            onClick={ handleSubmit }
+            className="bg-orange-500 text-white p-2 rounded-lg w-5/6 cursor-pointer
           transition-all duration-200 hover:bg-orange-300 hover:font-medium
-          shadow font-outfit"
-        >
-          Login
-        </button>
-        <button
-          type="button"
-          className="bg-emerald-200 rounded-lg w-5/6 mt-2 p-1 shadow
+          shadow font-outfit max-w-md block mx-auto"
+          >
+            Login
+          </button>
+          <button
+            type="button"
+            className="bg-emerald-200 rounded-lg w-5/6 mt-2 p-1 shadow
           transition-all duration-200 hover:bg-emerald-400 font-outfit
-          hover:font-medium"
-        >
-          Sign in
-        </button>
+          hover:font-medium max-w-md block mx-auto"
+          >
+            Sign in
+          </button>
+        </fieldset>
       </form>
     </div>
   );
