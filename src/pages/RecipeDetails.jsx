@@ -190,7 +190,7 @@ function RecipeDetails({
             ? (
               <p
                 className="absolute right-4 top-16 font-semibold
-                text-xl animate-pulse text-orange-400"
+                text-sm animate-pulse text-orange-400"
               >
                 Copied link!
               </p>

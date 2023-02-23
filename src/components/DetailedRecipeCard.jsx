@@ -8,7 +8,7 @@ export default function DetailedRecipeCard() {
     <div>
       {
         detailedRecipe.map((e, index) => (
-          <div key={ index } className="flex-col text-center">
+          <div key={ index } className="flex-col text-center px-4">
             <img
               src={ e.strMealThumb || e.strDrinkThumb }
               alt={ e.idDrink || e.idMeal }
