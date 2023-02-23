@@ -8,7 +8,7 @@ import Header from './Header';
 import Loading from './Loading';
 import RecipeCard from './RecipeCard';
 
-function Drinks() {
+export default function Drinks() {
   const {
     fetchedItems,
     firstLoadFetch,
@@ -53,13 +53,13 @@ function Drinks() {
                   ))
                 }
               </div>
-              <div className="grid grid-cols-2 mb-12">
+              <div className="flex flex-wrap items-center justify-evenly px-5 py-1">
                 {
                   fetchedItems.map((drink, index) => (
                     <Link
                       key={ drink.idDrink }
                       to={ `/drinks/${drink.idDrink}` }
-                      className="no-underline text-black"
+                      className="no-underline text-black mx-auto mt-3 mb-14 truncate w-44"
                     >
                       <RecipeCard
                         key={ drink.idDrink }
@@ -81,5 +81,3 @@ function Drinks() {
     </div>
   );
 }
-
-export default Drinks;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Drinks from '../components/Drinks';
 import Meals from '../components/Meals';
 
-function Recipes({ location: { pathname } }) {
+export default function Recipes({ location: { pathname } }) {
   return (
     <div className="min-h-screen font-outfit">
       {
@@ -20,5 +20,3 @@ Recipes.propTypes = {
     pathname: PropTypes.string.isRequired,
   }).isRequired,
 };
-
-export default Recipes;
