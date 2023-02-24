@@ -113,104 +113,101 @@ function RecipesInProgress({
   }, [getItem]);
 
   return (
-    <div>
-      <div className="flex-col text-center bg-zinc-50">
-        {
-          detailedRecipe.map((e, index) => (
-            <div key={ index }>
-              <div>
-                <input
-                  type="image"
-                  data-testid="share-btn"
-                  onClick={ copy }
-                  src={ shareIcon }
-                  alt="shareicon"
-                  className="absolute top-5 right-5 w-10"
-                />
-                <input
-                  type="image"
-                  data-testid="favorite-btn"
-                  onClick={ handleSetFavorite }
-                  src={ favoriteRecipe ? blackHeartIcon : whiteHeartIcon }
-                  alt="favorite-icon"
-                  className="absolute top-5 left-5 w-10"
-                />
-                {
-                  copiedLink && isAlertVisible
-                    ? (
-                      <p
-                        className="absolute right-4 top-16 font-semibold
-                text-xl animate-pulse text-sky-400"
-                      >
-                        Copied link!
-                      </p>
-                    )
-                    : null
-                }
-              </div>
-              <img
-                data-testid="recipe-photo"
-                src={ e.strMealThumb || e.strDrinkThumb }
-                alt={ e.idDrink || e.idMeal }
-                className="w-full rounded-t-lg shadow"
+    <div className="font-outfit text-center px-4">
+      {
+        detailedRecipe.map((e, index) => (
+          <div key={ index }>
+            <div>
+              <input
+                type="image"
+                onClick={ copy }
+                src={ shareIcon }
+                alt="shareicon"
+                className="absolute top-5 right-5 w-7"
               />
-              <h2
-                className="bg-violet-500 text-white p-3 w-full shadow mb-4"
-              >
-                { e.strMeal || e.strDrink }
-              </h2>
-              <p className="mb-4">
-                {
-                  detailedRecipe[0].idMeal
-                    ? `Category: ${e.strCategory}`
-                    : `Category: ${e.strCategory}`
-                }
-              </p>
-              <ul
-                className="text-justify mb-4 py-3
-              outline outline-1 outline-offset-1 mx-3 rounded-lg"
-              >
-                {
-                  getRecipeIngredients().map((value, i) => (
-                    <li
-                      key={ i }
-                      data-testid={ `${i}-ingredient-name-and-measure` }
+              <input
+                type="image"
+                onClick={ handleSetFavorite }
+                src={ favoriteRecipe ? blackHeartIcon : whiteHeartIcon }
+                alt="favorite-icon"
+                className="absolute top-5 left-5 w-7"
+              />
+              {
+                copiedLink && isAlertVisible
+                  ? (
+                    <p
+                      className="absolute right-4 top-16 font-semibold
+                        text-sm animate-pulse text-orange-400"
+                    >
+                      Copied link!
+                    </p>
+                  )
+                  : null
+              }
+            </div>
+            <img
+              src={ e.strMealThumb || e.strDrinkThumb }
+              alt={ e.idDrink || e.idMeal }
+              className="rounded-full w-2/5 h-w-2/5 mx-auto my-4
+                max-w-sm shadow-2xl object-cover"
+            />
+            <h2
+              className="bg-orange-400/95 text-white p-2 w-5/6
+              shadow my-4 rounded-full mx-auto max-w-lg"
+            >
+              { e.strMeal || e.strDrink }
+            </h2>
+            <p className="mb-4">
+              {
+                detailedRecipe[0].idMeal
+                  ? `Category: ${e.strCategory}`
+                  : `Category: ${e.strCategory}`
+              }
+            </p>
+            <h4 className="mb-4">Ingredients</h4>
+            <ul
+              className="list-disc list-inside text-justify mb-4 py-3
+              text-white rounded-lg bg-orange-400 max-w-lg mx-auto"
+            >
+              {
+                getRecipeIngredients().map((value, i) => (
+                  <li
+                    key={ i }
+                    id={ `${i}-ingredient-step` }
+                  >
+                    <label
+                      htmlFor={ `${i}-ingredient-step` }
                       id={ `${i}-ingredient-step` }
                     >
-                      <label
-                        htmlFor={ `${i}-ingredient-step` }
+                      <input
+                        className="check-input mr-2 mb-3 accent-emerald-300"
+                        type="checkbox"
+                        name={ `${i}-ingredient-step` }
                         id={ `${i}-ingredient-step` }
-                        data-testid={ `${i}-ingredient-step` }
-                      >
-                        <input
-                          className="check-input mr-2 mb-3 accent-violet-600"
-                          type="checkbox"
-                          name={ `${i}-ingredient-step` }
-                          id={ `${i}-ingredient-step` }
-                        />
-                        { value }
-                      </label>
-                    </li>
-                  ))
-                }
-              </ul>
-              <p
-                className="text-justify mb-4 p-3 outline
-                outline-1 outline-offset-1 mx-3 rounded-lg"
-              >
-                { e.strInstructions }
-              </p>
-            </div>
-          ))
-        }
-        <button
-          type="button"
-          className="bg-violet-500 p-3 w-full text-white mb-1"
-        >
-          FINISH RECIPE
-        </button>
-      </div>
-
+                      />
+                      { value }
+                    </label>
+                  </li>
+                ))
+              }
+            </ul>
+            <p
+              className="text-justify mb-4 p-3 bg-orange-400
+              rounded-lg text-white  max-w-lg mx-auto"
+            >
+              { e.strInstructions }
+            </p>
+          </div>
+        ))
+      }
+      <button
+        type="button"
+        className=" bg-orange-400 p-2 w-full rounded-lg mx-auto block text-white
+        hover:bg-orange-500 hover:font-medium transition-all duration-150
+        max-w-lg mb-3"
+      >
+        FINISH RECIPE
+      </button>
     </div>
   );
 }
