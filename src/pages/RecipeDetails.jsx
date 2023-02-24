@@ -11,7 +11,7 @@ import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/liked.svg';
 
-function RecipeDetails({
+export default function RecipeDetails({
   history: { location: { pathname } },
   match: { params: { id } },
 }) {
@@ -171,7 +171,6 @@ function RecipeDetails({
       <div>
         <input
           type="image"
-          data-testid="share-btn"
           onClick={ copy }
           src={ shareIcon }
           alt="shareicon"
@@ -179,7 +178,6 @@ function RecipeDetails({
         />
         <input
           type="image"
-          data-testid="favorite-btn"
           onClick={ handleSetFavorite }
           src={ favoriteRecipe ? blackHeartIcon : whiteHeartIcon }
           alt="favorite-icon"
@@ -236,5 +234,3 @@ RecipeDetails.propTypes = {
     }).isRequired,
   }).isRequired,
 };
-
-export default RecipeDetails;
